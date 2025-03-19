@@ -8,3 +8,7 @@ development:
 
 production:
   <<: *default
+  host: dpg-cvdet28gph6c73b1jnd0-a
+  database: original_hair_history
+  username: original_hair_history_user
+  password: uyelvP8HhqzcFeOO9T4B9wgm5fiBEScw
