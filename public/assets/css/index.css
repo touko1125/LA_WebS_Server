@@ -1,0 +1,406 @@
+/* Fonts */
+.kiwi-maru {
+    font-family: "Kiwi Maru", serif;
+}
+
+.inria-sans {
+    font-family: "Inria Sans", sans-serif;
+}
+
+.ranchers-regular {
+    font-family: "Ranchers", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Layout Helpers */
+.vertical-group { display: flex; flex-direction: column; }
+.horizontal-group { display: flex; flex-direction: row; }
+.vertical-center { align-items: center; }
+.horizontal-center { justify-content: center; text-align: center; }
+
+body { 
+    background-color: #1E1E1E; 
+    overflow: hidden;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 15px;
+    flex-direction: column;
+    padding: 2%;
+}
+nav a {
+    color: #F8F8F8;
+    font-size: 1.5em;
+    text-decoration: none;
+    margin: 40% 0;
+}
+nav a img { margin-right: 15px; }
+.navigation-def { margin-top: 100%; }
+.navigation-account { margin-top: 150%; }
+.navigation-account a {
+    margin: 10% 0;
+    font-size: 1.0em;
+}
+.user-profile img {
+    border-radius: 120px;
+    margin-right: 50px;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 250px;
+    right: 15px;
+    background-color: #F8F8F8;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+.account-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}
+.account-section .title-logo { margin: 15% 0 5%; }
+.account-form input {
+    width: 300px;
+    height: 25px;
+    border-radius: 30px;
+    padding: 10px;
+}
+.account-form button {
+    width: 320px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #1E1E1E;
+    color: #F8F8F8;
+}
+#select-file {
+    margin-left: 50px;
+    margin-top: 5px;
+    width: 80px;
+    height: 45px;
+}
+.error { color: red; font-size: 0.8em; }
+.username { color: #F8F8F8; font-size: 1.0em; }
+
+/* Home */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2%;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.home-container h1 { font-size: 2.5em; }
+.home-container hr {
+    width: 100%;
+    margin-bottom: 2%;
+    border-top: 2px dashed #1E1E1E;
+}
+.post-main-container { width: 100%; padding: 1%; }
+.post-sub-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+.post-detail-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.post-detail-container .hair-history-container {
+    width: 100%;
+}
+
+.post-detail-container .like-group {
+    margin-top: 2%;
+}
+
+.post-detail-container .like-group p {
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.hair-history-container {
+    display: flex;
+    flex-direction: row;
+    margin: 2% 2%;
+    width: 45%;
+    height: 150px;
+    border: 2px solid #1E1E1E;
+    border-radius: 10px;
+}
+.hair-history-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    padding-right: 3%;
+    border-right: 1px solid #1E1E1E;
+    margin: 2% 0 2% 1%;
+}
+.vertical-rectangles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+.vertical-rectangle { width: 15px; }
+.vertical-rectangles .vertical-rectangle:first-child { border-top-left-radius: 7px; }
+.vertical-rectangles .vertical-rectangle:last-child { border-bottom-left-radius: 7px; }
+
+/* ヘアカラー帯を包む要素 */
+.hair-colors-band {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 1rem;
+}
+
+/* 各色の矩形。幅はピクセル指定せずフレックスレシオで管理 */
+.hair-colors-band .horizontal-rectangle {
+    height: 120%;
+}
+.hair-colors-band .horizontal-rectangle:first-child { border-top-left-radius: 20px; }
+.hair-colors-band .horizontal-rectangle:last-child { border-top-right-radius: 20px; }
+
+.user-colors {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2% 0;
+}
+.horizontal-circle {
+    width: 15px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 2px;
+}
+.horizontal-circle-part { height: 15px; }
+.horizontal-circle .horizontal-circle-part:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.horizontal-circle .horizontal-circle-part:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.hair-history-main img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.hair-history-sub {
+    width: 80%;
+    margin: 3% 3% 2% 5%;
+}
+.hair-history-sub p { font-size: 0.8em; margin: 0; }
+
+.hair-history-days-scroll {
+    /* 横スクロールを可能にする */
+    overflow-x: auto;        /* 横スクロール表示を許可 */
+    -webkit-overflow-scrolling: touch; /* スマホでのスムーズスクロール対応 (必要に応じて) */
+    white-space: nowrap;     /* 要素を横並びで折り返さない */
+}
+
+.hair-history-days-scroll .horizontal-group {
+    display: inline-flex; /* 横方向に要素を並べる */
+}
+
+.hair-history-day {
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: inline-block;
+    margin-right: 1rem; /* 適宜スペースを調整 */
+    text-align: center;
+}
+.hair-history-day img {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin-top: 20%;
+}
+
+.hair-history-sub-header {
+    justify-content: space-between;
+}
+
+.hair-history-sub-footer {
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+.detail-header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
+.detail-info {
+    width: 60%;
+    border:#dddddd 2px solid;
+    border-radius: 10px;
+    padding: 2%;
+    margin: 2% 0;
+}
+
+.detail-info p {
+    font-size: 0.8em;
+    margin: 1% 0;
+}
+
+.detail-day img {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    margin-right: 4%;
+    margin-left: 2%;
+}
+
+.detail-day .title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.bookmark-button {
+    background-image: url('/assets/img/bookmark-nofill.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 18px; 
+    height: 18px; 
+    border: none; 
+    cursor: pointer; 
+    text-indent: -9999px;
+    display: inline-block;
+}
+
+.like-group p {
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+.like-button {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 18px; 
+    height: 18px; 
+    border: none; 
+    cursor: pointer; 
+    text-indent: -9999px;
+    display: inline-block;
+}
+
+.more-button {
+    border: none; 
+    cursor: pointer; 
+    background-color: transparent;
+}
+
+.back-button {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 25px; 
+    height: 25px; 
+    margin-top: 1%;
+    margin-left: -3%;
+    border: none; 
+    cursor: pointer; 
+    text-indent: -9999px;
+    display: inline-block;
+}
+
+.profile-container {
+    margin: 0 2%;
+    width: 100%;
+}
+
+.profile-container .horizontal-group {
+    width: 100%;
+}
+
+.profile-container .hair-history-sub-footer  {
+    margin-top: -3%;
+}
+
+.profile-main {
+    width: 70%;
+    margin-right: 5%;
+}
+
+.profile-sub {
+    width: 30%;
+    height: 106%;
+    margin-right: -20%;
+    margin-top: -2.8%;
+    margin-bottom: 2%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: -2px 0 10px rgba(30, 30, 30, 0.2);
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-top: 40%;
+    border: #1E1E1E 2px solid;
+}
+
+.profile-detail {
+    margin-top: 10%;
+    width: 80%;
+    font-size: 0.5em;
+    border: #1E1E1E 1px solid;
+    border-radius: 10px;
+    padding: 3%;
+}
+
+.profile-buttons {
+    margin-top: 120%;
+}
+
+.profile-buttons img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10%;
+}
+
+.profile-buttons input {
+    font-family: "Ranchers", sans-serif;
+    font-size: 1.2em;
+    border: none;
+    background-color: transparent;
+}

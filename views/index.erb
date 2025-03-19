@@ -1,0 +1,56 @@
+<div class="home-container">
+    <h1 class="ranchers-regular">Home</h1>
+    <hr>
+    <div class="post-all-container">
+
+        <div class="post-main-container">
+            <h2 class="ranchers-regular">Trend</h2>
+            <div class="post-sub-container">
+                <% if @trend_hair_histories && @trend_hair_histories.any? %>
+                    <% @trend_hair_histories.each do |hair_history| %>
+                        <%= partial('hair_history_card',
+                                hair_history: hair_history, 
+                                isAuthed: @isAuthed,
+                                user: @user) %>
+                    <% end %>
+                <% else %>
+                    <p class="kiwi-maru">データがありません</p>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="post-main-container">
+            <h2 class="ranchers-regular">New</h2>
+            <div class="post-sub-container">
+                <% if @new_hair_histories && @new_hair_histories.any? %>
+                    <% @new_hair_histories.each do |hair_history| %>
+                        <%= partial('hair_history_card',
+                                hair_history: hair_history, 
+                                isAuthed: @isAuthed,
+                                user: @user) %>
+                    <% end %>
+                <% else %>
+                    <p class="kiwi-maru">データがありません</p>
+                <% end %>
+            </div>
+        </div>
+
+        <% if @isAuthed %>
+            <div class="post-main-container">
+                <h2 class="ranchers-regular">Friend</h2>
+                <div class="post-sub-container">
+                    <% if @friend_hair_histories && @friend_hair_histories.any? %>
+                        <% @friend_hair_histories.each do |hair_history| %>
+                            <%= partial('hair_history_card',
+                                hair_history: hair_history, 
+                                isAuthed: @isAuthed,
+                                user: @user) %>
+                        <% end %>
+                    <% else %>
+                        <p class="kiwi-maru">データがありません</p>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="hair-history-container">
+  <div class="vertical-rectangles">
+    <% hair_history.hair_history_colors.each do |color| %>
+      <div class="vertical-rectangle"
+           style="background-color: <%= color.hair_color.hex_code %>;
+                  height: <%= (150 * color.percentage / 100.0).ceil %>px;">
+      </div>
+    <% end %>
+  </div>
+  <div class="hair-history-main">
+    <img src="<%= hair_history.hair_week.day1_hair.img_link %>" width="100px">
+    <p class="inria-sans"><%= hair_history.user.name %></p>
+    <div class="user-colors">
+      <% hair_history.user.hair_histories.take(3).each do |history| %>
+        <div class="horizontal-circle">
+          <% history.hair_history_colors.each do |color| %>
+            <div class="horizontal-circle-part"
+                 style="background-color: <%= color.hair_color.hex_code %>;
+                        width: <%= (15 * color.percentage / 100.0).ceil %>px;">
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="hair-history-sub">
+    <div class="horizontal-group hair-history-sub-header">
+      <p class="inria-sans">
+        <%= hair_history.start_date %> - <%= hair_history.end_date %>
+      </p>
+      <% if isAuthed %>
+        <form action="/user/<%= user.id %>/hair_history/<%= hair_history.id %>/bookmark" method="post">
+            <% if hair_history.bookmark_users.map{|bookmarkU| bookmarkU.id}.include?(user.id) %>
+              <input type="submit" value="bookmark" class="bookmark-button" style="background-image: url('/assets/img/bookmark-fill.png');">
+            <% else %>
+              <input type="submit" value="bookmark" class="bookmark-button" style="background-image: url('/assets/img/bookmark-nofill.png');">
+            <% end %>
+        </form>
+      <% end %>
+    </div>
+    <div class="hair-history-days-scroll">
+      <div class="horizontal-group">
+        <% (1..14).each do |i| %>
+          <% hair_day = hair_history.hair_week.send("day#{i}_hair") %>
+          <% if hair_day %>
+            <div class="hair-history-day">
+              <p class="inria-sans">Day<%= i %></p>
+              <img src="<%= hair_day.img_link %>">
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="horizontal-group hair-history-sub-footer">
+      <% if isAuthed %>
+        <div class="horizontal-group vertical-center like-group">
+          <form action="/user/<%= user.id %>/hair_history/<%= hair_history.id %>/like" method="post">
+            <% if hair_history.like_users.map{|likeU| likeU.id}.include?(user.id) %>
+              <input type="submit" value="like" class="like-button" style="background-image: url('/assets/img/heart-fill.png');">
+            <% else %>
+              <input type="submit" value="like" class="like-button" style="background-image: url('/assets/img/heart-nofill.png');">
+            <% end %>
+          </form>
+          <p class="inria-sans"><%= hair_history.like_users.size() %></p>
+        </div>
+      <% end %>
+      <form action="/hair_history/<%= hair_history.id %>" method="get">
+        <input type="submit" value="more↗︎" class="inria-sans more-button">
+      </form>
+    </div>
+  </div>
+</div>

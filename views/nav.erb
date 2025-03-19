@@ -1,0 +1,32 @@
+<nav>
+    <img src="/assets/img/logo.png" alt="HairColorRing" class="logo" width="100px">
+    <div class="vertical-group navigation-def">
+        <a href="/home" class="ranchers-regular">
+            <img src="/assets/img/home.png" width="20px">Home
+        </a>
+        <a href="/profile" class="ranchers-regular">
+            <img src="/assets/img/user.png" width="20px">Profile
+        </a>
+        <a href="/search" class="ranchers-regular">
+            <img src="/assets/img/search.png" width="20px">Search
+        </a>
+    </div>
+    <div class="vertical-group navigation-account">
+        <% if @isAuthed %>
+            <div class="horizontal-group vertical-center user-profile">
+                <img src="<%= @user.profile_img_link %>" width="25px" height="25px">
+                <p class="username kiwi-maru-regular"><%= @user.name %></p>
+            </div>
+            <a href="/signout" class="kiwi-maru-regular">
+                <img src="/assets/img/sign-out.png" width="15px">ログアウト
+            </a>
+        <% else %>
+            <a href="/signup" class="kiwi-maru-regular">
+                <img src="/assets/img/sign-in.png" width="15px">新規登録
+            </a>
+            <a href="/signin" class="kiwi-maru-regular">
+                <img src="/assets/img/sign-up.png" width="15px">ログイン
+            </a>
+        <% end %>
+    </div>
+</nav>

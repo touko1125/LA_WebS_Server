@@ -1,0 +1,39 @@
+<div class="home-container">
+    <div class="hair-colors-band">
+        <% @detail.hair_history_colors.each do |color| %>
+            <div class="horizontal-rectangle" style="background-color: <%= color.hair_color.hex_code %>; flex: <%= color.percentage %>;"></div>
+        <% end %>
+    </div>
+    <button class="back-button" type="button" onclick="window.history.back()"></button>
+    <div class="vertical-group vertical-center detail-header">
+        <img src="<%= @detail.hair_week.day1_hair.img_link %>" class="detail-image">
+        <p class="inria-sans"><%= @detail.start_date %> - <%= @detail.end_date %></p>
+        <div class="detail-info">
+            <p class="kiwi-maru">施術場所: <%= @detail.salon.name %>(<%= @detail.salon.address %>)</p>
+            <p class="kiwi-maru">担当美容師: <%= @detail.stylist.name %></p>
+            <p class="kiwi-maru">評価: 
+                <% @detail.evaluation.times do %>
+                ★
+                <% end %>
+            </p>
+            <p class="kiwi-maru">メモ: <%= @detail.memo %></p>
+        </div>
+        <hr>
+    </div>
+    <div class="vertical-group detail-week">
+        <% (1..14).each do |i| %>
+            <% hair_day = @detail.hair_week.send("day#{i}_hair") %>
+            <% if hair_day %>
+                <div class="detail-day">
+                    <div class="horizontal-group vertical-center">
+                        <img src="<%= hair_day.img_link %>">
+                        <div class="vertical-group">
+                            <p class="inria-sans title">Day<%= i %></p>
+                            <p class="kiwi-maru content">メモ：<%= hair_day.memo %></p>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>

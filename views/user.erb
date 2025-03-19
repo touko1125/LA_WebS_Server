@@ -1,0 +1,37 @@
+<div class="profile-container">
+    <div class="horizontal-group">
+        <div class="vertical-group profile-main">
+            <h1 class="ranchers-regular">Profile</h1>
+                <div class="post-detail-container">
+                    <% @user_hair_histories.each do |hair_history| %>
+                        <%= partial('hair_history_card',
+                                hair_history: hair_history, 
+                                isAuthed: @isAuthed,
+                                user: @user) %>
+                    <% end %>
+                </div>
+            <hr>
+        </div>
+        <div class="vertical-group vertical-center profile-sub">
+            <img src="<%= @user.profile_img_link %>" class="profile-image">
+            <p class="kiwi-maru"><%= @user.name %></p>
+            <p class="kiwi-maru" style="font-size: 0.5em;">フォロー0人/フォロワー0人</p>
+
+            <div class="profile-detail">
+                <p class="kiwi-maru">
+                    これまでのカラー回数：10回<br>
+                    これまでのブリーチ回数：5回<br>
+                    これまでの黒染め回数3回<br>
+                    お気に入りのカラー：ブルー系<br>
+                </p>
+            </div>
+
+            <div class=" horizontal-group horizontal-center vertical-center profile-buttons">
+                <img src="/assets/img/setting.png">
+                <form action="/user/<%= @user.id %>/setting" method="get">
+                    <input type="submit" value="SETTINGS">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

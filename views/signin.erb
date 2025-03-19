@@ -1,0 +1,14 @@
+<div class="account-section kiwi-maru-regular">
+    <img src="/assets/img/title-logo.png" class="title-logo" width="200px">
+    <form action="/signin" method="post" class="account-form">
+        <p>E-Mail</p>
+        <input type="text" name="email" placeholder="メールアドレス" required>
+        <p>Password</p>
+        <input type="password" name="password" placeholder="パスワード" required><br>
+        <button type="submit">LOGIN</button>
+    </form>
+    <p>Didn't have an account? <a href="/signup">Sign Up</a></p>
+    <% if @isError %>
+        <p class="error"><%= @errorMessage %></p>
+    <% end %>
+</div>

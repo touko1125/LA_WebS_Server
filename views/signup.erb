@@ -1,0 +1,21 @@
+<div class="account-section kiwi-maru-regular">
+    <img src="/assets/img/title-logo.png" class="title-logo" width="200px">
+    <form action="/signup" method="post" class="account-form" enctype="multipart/form-data">
+        <p>Name</p>
+        <input type="text" name="name" placeholder="名前" required>
+        <p>E-Mail</p>
+        <input type="text" name="email" placeholder="メールアドレス" required>
+        <p>Password</p>
+        <input type="password" name="password" placeholder="パスワード" required><br>
+        <div class="icon-upload">
+            <input type="file" id="image-file" name="image_file" accept="image/*" style="display:none" required><br>
+            <label for="image-file">アイコンを選択...</label>
+            <button id="select-file" type="button">選択</button>
+        </div>
+        <button type="submit">SIGNUP</button>
+    </form>
+    <p>Already have an account ? <a href="/signin">Log in</a></p>
+    <% if @isError %>
+        <p class="error"><%= @errorMessage %></p>
+    <% end %>
+</div>
